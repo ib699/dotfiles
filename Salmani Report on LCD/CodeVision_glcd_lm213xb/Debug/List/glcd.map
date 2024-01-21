@@ -1,0 +1,30 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+rx_buffer                                                                         0x026F       8
+string                                                                            0x0277      32
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+rx_wr_index                                                                       R5           1
+rx_rd_index                                                                       R4           1
+rx_counter                                                                        R7           1
+rx_buffer_overflow                                                                R2.0      1bit
+rawcounter                                                                        R8,R9        2
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+usart_rx_isr                                                                      0x00376     57
+write_string8Line                                                                 0x003AF    202
+cursor_setHighAddress                                                             0x004A3     24
+init                                                                              0x004BB    141
+screenReset                                                                       0x00548     17
+main                                                                              0x00559     31
+strcpy                                                                            0x00578     13
+strlen                                                                            0x00585     12

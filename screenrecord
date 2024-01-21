@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# Function to display help message
+display_help() {
+    echo "Usage: script_name [OPTIONS]"
+    echo "Options:"
+    echo "  -h, --help        Display this help message"
+    echo "  -f, --fullscreen  Records full screen"
+    echo "  -w, --window      Records only a window "
+}
+
+path="/home/lwall/Documents/screenshot"
+
+# Check if no arguments are given
+if [[ $# -eq 0 ]]; then
+    scrot $path/Screenshot-"$(date '+%Y-%m-%dT%H-%M-%S')".png
+    exit 0
+fi
+
+# Parse command line arguments
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -h|--help)
+            display_help
+            exit 0
+            ;;
+        -f|--fullscreen)
+	    ffmpeg -f x11grab -s 1920x1080 -i :0.0 -f pulse -i default $path/ScreenRecord-"$(date '+%Y-%m-%dT%H-%M-%S')".mp4
+	    exit 0
+            ;;
+        -w|--window)
+            window_info="$(xwininfo)"
+            window_geometry=$(echo "$window_info" | grep "Width:" | awk '{print $2 "x"}' \
+                 && echo "$window_info" | grep "Height:" | awk '{print $2}')
+
+	    ffmpeg -f x11grab -s "$window_geometry" -i "$DISPLAY" -f pulse -i default $path/ScreenRecord-"$(date '+%Y-%m-%dT%H-%M-%S')".mp4
+            exit 0
+            ;;
+        -s|--sel)
+            scrot $path/screenshot-"$(date '+%Y-%m-%dT%H-%M-%S')".png --select --line mode=edge
+            exit 0
+            ;; 
+        *)
+            echo "Invalid option: $1"
+            display_help
+            exit 1
+            ;;
+    esac
+done
