@@ -8,6 +8,4 @@ while true; do
         sleep 1m	
 done &
 
-feh --bg-fill /home/lwall/Documents/background/clouds.jpg &
-
-exec dwm
+feh --bg-fill /home/lwall/Documents/background/clouds.jpg

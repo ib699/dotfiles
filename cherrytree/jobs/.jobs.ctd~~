@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <bookmarks list=""/>
+  <node name="jobs" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1708263674" ts_lastsave="1708527897">
+    <node name="Sunday February 18, 2024" unique_id="2" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1708263789" ts_lastsave="1708264741">
+      <rich_text>1- game at 10 *
+2- went to class *
+3- went to amoozesh *
+4-  </rich_text>
+    </node>
+    <node name="Tuesday February 20, 2024" unique_id="3" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1708264016" ts_lastsave="1708527842">
+      <rich_text>1- subject for FPGA
+2- talked to nikabadi about lessons *
+3- </rich_text>
+    </node>
+    <node name="wednesday February 20, 2024" unique_id="5" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1708527842" ts_lastsave="1708527975">
+      <rich_text>1- sent working time to boss</rich_text>
+    </node>
+    <node name="Sunday February 25, 2024" unique_id="4" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1708266345" ts_lastsave="1708266360">
+      <rich_text>1- go get the exemption paper for the class missed</rich_text>
+    </node>
+  </node>
+  <node name="to do" unique_id="6" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1708527897" ts_lastsave="1708528015">
+    <rich_text>1- get the lab site up and running
+2- do fpga practice
+3- study cloud</rich_text>
+    <node name="do time" unique_id="7" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1708528015" ts_lastsave="1708528015"/>
+  </node>
+</cherrytree>
