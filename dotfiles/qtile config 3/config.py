@@ -124,9 +124,19 @@ keys = [
     Key([mod, "control"], "w", lazy.spawn(home + "/dotfiles/qtile/scripts/wallpaper.sh select"), desc="Select Theme and Wallpaper"),
 
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl -q s +20%")),
-    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl -q s 20%-"))        
-]
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl -q s 20%-")),        
 
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%")),
+    Key([], "XF86AudioMute", lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")),
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
+    Key([], "XF86AudioPause", lazy.spawn("playerctl pause")),
+    Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
+    Key([], "XF86AudioMicMute", lazy.spawn("pactl set-source-mute @DEFAULT_SOURCE@ toggle")),
+    Key([], "XF86Calculator", lazy.spawn("qalculate-gtk")),
+    Key([], "XF86Tools", lazy.spawn("alacritty --class dotfiles-floating -e ~/dotfiles/hypr/settings/settings.sh"))
+]
 # --------------------------------------------------------
 # Groups
 # --------------------------------------------------------
