@@ -16,4 +16,4 @@ Forked from https://github.com/jx11r/qtile
 
 ![arch qtile config](https://github.com/ib699/dotfiles/blob/main/dotfiles/qtile%20config%203/screenshot.png)
 
-Forked from [https://github.com/jx11r/qtile](https://gitlab.com/stephan-raabe/dotfiles)
+Forked from https://gitlab.com/stephan-raabe/dotfiles
