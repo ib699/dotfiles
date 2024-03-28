@@ -225,8 +225,8 @@ extension_defaults = widget_defaults.copy()
 decor_left = {
     "decorations": [
         PowerLineDecoration(
-            path="arrow_left"
-            # path="rounded_left"
+            #path="arrow_left"
+            path="rounded_left"
             # path="forward_slash"
             # path="back_slash"
         )
@@ -236,8 +236,8 @@ decor_left = {
 decor_right = {
     "decorations": [
         PowerLineDecoration(
-            path="arrow_right"
-            # path="rounded_right"
+            #path="arrow_right"
+            path="rounded_right"
             # path="forward_slash"
             # path="back_slash"
         )
@@ -320,39 +320,39 @@ widget_list = [
     ),
     widget.Volume(
         **decor_right,
-        background=Color12+".4",
+        background=Color8+".4",
         padding=10, 
         fmt='Vol: {}',
     ),
     widget.DF(
         **decor_right,
         padding=10, 
-        background=Color8+".4",        
+        background=Color10+".4",        
         visible_on_warn=False,
         format="{p} {uf}{m} ({r:.0f}%)"
     ),
     widget.Bluetooth(
         **decor_right,
-        background=Color2+".4",
+        background=Color8+".4",
         padding=10,
         mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("blueman-manager")},
     ),
     widget.Wlan(
         **decor_right,
-        background=Color2+".4",
+        background=Color10+".4",
         padding=10,
         format='{essid} {percent:2.0%}',
         mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("alacritty -e nmtui")},
     ),
     widget.Clock(
         **decor_right,
-        background=Color4+".4",   
+        background=Color2+".4",   
         padding=10,      
         format="%Y-%m-%d / %I:%M %p",
     ),
     widget.TextBox(
         **decor_right,
-        background=Color2+".4",     
+        background=Color8+".4",     
         padding=5,    
         text=" ",
         fontsize=20,
@@ -361,11 +361,11 @@ widget_list = [
 ]
 
 # Hide Modules if not on laptop
-if (show_wlan == False):
-    del widget_list[13:14]
-
-if (show_bluetooth == False):
-    del widget_list[12:13]
+#f (show_wlan == False):
+#    del widget_list[13:14]
+#
+#if (show_bluetooth == False):
+#    del widget_list[12:13]
 
 # --------------------------------------------------------
 # Screens
