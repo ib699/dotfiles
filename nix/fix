@@ -1,0 +1,4 @@
+if removed a file in nix packages file do this:
+
+    sudo nix-store --verify --check-contents --repair
+    nix-env --upgrade    
