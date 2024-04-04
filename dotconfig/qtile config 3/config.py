@@ -38,11 +38,11 @@ from qtile_extras.widget.decorations import PowerLineDecoration
 
 # Show wlan status bar widget (set to False if wired network)
 # show_wlan = True
-show_wlan = True
+show_wlan = False
 
 # Show bluetooth status bar widget
 # show_bluetooth = True
-show_bluetooth = True
+show_bluetooth = False
 
 # --------------------------------------------------------
 # General Variables
@@ -347,6 +347,12 @@ widget_list = [
         padding=10,
         mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("blueman-manager")},
     ),
+    widget.Battery(
+         **decor_right,
+        background=Color8+".4",
+        padding=10,    
+        format='{char} {percent:2.0%}'
+    ),
     widget.Wlan(
         **decor_right,
         background=Color10+".4",
@@ -374,9 +380,10 @@ widget_list = [
 #f (show_wlan == False):
 #    del widget_list[13:14]
 #
-#if (show_bluetooth == False):
-#    del widget_list[12:13]
-
+if (show_bluetooth == False):
+    del widget_list[12:13]
+else:
+    del widget_list[13:14]
 # --------------------------------------------------------
 # Screens
 # --------------------------------------------------------
