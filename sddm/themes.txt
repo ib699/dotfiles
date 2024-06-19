@@ -1,0 +1,5 @@
+#theme first fav
+https://github.com/Keyitdev/sddm-astronaut-theme
+
+#theme second fav
+https://github.com/catppuccin/sddm?tab=readme-ov-file
