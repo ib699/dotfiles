@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLaMA 3 Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 20px;
+        }
+        #prompt {
+            width: 100%;
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            border: 1px solid #444;
+            padding: 10px;
+            border-radius: 4px;
+            resize: none;
+        }
+        button {
+            background-color: #6200ea;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #3700b3;
+        }
+        #response {
+            margin-top: 20px;
+            white-space: pre-wrap;
+            border: 1px solid #444;
+            padding: 10px;
+            background-color: #1e1e1e;
+            border-radius: 4px;
+        }
+        code {
+            background-color: #333;
+            color: #ffeb3b;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>LLaMA 3 Web Interface</h1>
+    <textarea id="prompt" rows="4" placeholder="Enter your prompt here..."></textarea><br>
+    <button onclick="generateResponse()">Generate Response</button>
+
+    <div id="response"></div>
+
+    <script>
+        async function generateResponse() {
+            const prompt = document.getElementById('prompt').value;
+            const responseDiv = document.getElementById('response');
+            responseDiv.innerHTML = '';  // Clear previous response
+
+            if (!prompt) {
+                alert('Please enter a prompt.');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:5000/api/generate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ model: 'llama3', prompt: prompt })
+                });
+
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder('utf-8');
+
+                let fullResponse = "";
+
+                while (true) {
+                    const { value, done } = await reader.read();
+                    if (done) break;
+                    const text = decoder.decode(value, { stream: true });
+                    const jsonResponse = JSON.parse(text);
+                    fullResponse += jsonResponse.response;
+                    responseDiv.innerHTML = parseMarkdown(fullResponse);
+                }
+            } catch (error) {
+                responseDiv.innerHTML = 'Error: ' + error.message;
+            }
+        }
+
+        function parseMarkdown(text) {
+            return text.replace(/```([^```]+)```/g, '<pre><code>$1</code></pre>')
+                       .replace(/\n/g, '<br>')
+                       .replace(/`([^`]+)`/g, '<code>$1</code>');
+        }
+    </script>
+</body>
+</html>
+
