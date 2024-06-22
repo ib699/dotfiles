@@ -1,0 +1,11 @@
+Installation:
+https://gist.github.com/tatumroaquin/c6464e1ccaef40fd098a4f31db61ab22
+
+Import the vm:
+tar -xvf your_vm.ova
+
+qemu-img convert -f vmdk your_disk.vmdk -O qcow2 your_disk.qcow2
+
+Open virt-manager and create a new virtual machine by clicking on "File" -> "New Virtual Machine".
+Follow the wizard to set up the VM, making sure to select the qcow2 disk image you converted in the previous step as the storage for the VM.
+
