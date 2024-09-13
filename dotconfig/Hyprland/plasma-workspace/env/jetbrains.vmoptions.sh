@@ -1,1 +1,0 @@
-/home/lwall/.jetbrains.vmoptions.sh
